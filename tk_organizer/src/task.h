@@ -31,6 +31,8 @@ task_t * create_task();
 int change_name(task_t *, char *);
 int change_description(task_t *, char *);
 int set_identifier(task_t *, id_t *);
+int set_metadata(task_t *, metadata_t *);
+int set_tags(task_t *, tags_t *);
 
 typedef struct
 task {

@@ -12,7 +12,7 @@ https://www.gnu.org/prep/standards/standards.html
 
 // Task Status related functions
 int solve_task(task_t * task){
-	if ((task->status == DROPPED) || (task->status == SOLVED)){
+	if ((DROPPED == task->status) || (SOLVED == task->status)){
 		return EXIT_FAILURE;
 	}
 	task->status = SOLVED;
@@ -20,7 +20,7 @@ int solve_task(task_t * task){
 }
 
 int drop_task(task_t * task){
-	if ((task->status == DROPPED) || (task->status == SOLVED)){
+	if ((DROPPED == task->status) || (SOLVED == task->status)){
 		return EXIT_FAILURE;
 	}
 	task->status = DROPPED;
@@ -28,7 +28,7 @@ int drop_task(task_t * task){
 }
 
 int activate_task(task_t * task){	
-	if (task->status == ACTIVE){
+	if (ACTIVE == task->status){
 		return EXIT_FAILURE;
 	}
 	task->status = ACTIVE;
@@ -66,7 +66,7 @@ int change_description(task_t * task, char * new_desc){
 }
 
 int set_identifier(task_t * task, id_t * identifier){
-	if (identifier == NULL){
+	if (NULL == identifier){
 		return EXIT_FAILURE; 
 	}
 	if (!is_unique(identifier)){
@@ -77,7 +77,7 @@ int set_identifier(task_t * task, id_t * identifier){
 }
 
 int set_metadata(task_t * task, metadata_t * metadata){
-	if (metadata == NULL){
+	if (NULL == metadata){
 		return EXIT_FAILURE;
 	}
 	if (!is_valid(metadata)){
@@ -85,6 +85,14 @@ int set_metadata(task_t * task, metadata_t * metadata){
 	}
 	task->metadata = *metadata;
 	return EXIT_SUCCESS;
+}
+
+int set_tags(task_t * task, tags_t * tags){
+	if (NULL == tags){
+		return EXIT_FAILURE;
+	}	
+	if ()
+	return EXIT_SUCCESS
 }
 
 
